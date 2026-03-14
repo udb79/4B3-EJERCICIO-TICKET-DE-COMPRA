@@ -38,13 +38,6 @@
             let lista = document.getElementById( "lista" );
             let total = document.getElementById( "total" );
 
-            if ( concepto.value != null && importe.value != null ) {
-
-                lista.innerHTML = lista.innerHTML + concepto.value + " (" + importe.value + ")" + "<br>";
-                total.innerHTML = parseInt( total.innerHTML ) + parseInt( importe.value );
-                
-            }
-
             if ( concepto.value == "" || importe.value == "" ) {
 
                 if ( concepto.value == "" ) {
@@ -57,6 +50,13 @@
                     return false;
                 }
 
+            }
+
+            if ( concepto.value != null && importe.value != null ) {
+
+                lista.innerHTML = lista.innerHTML + concepto.value + " (" + importe.value + ")" + "<br>";
+                total.innerHTML = parseInt( total.innerHTML ) + parseInt( importe.value );
+                
             }
             
         }
