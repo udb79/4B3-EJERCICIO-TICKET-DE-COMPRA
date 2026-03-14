@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Ticket de Compra</title>
+    <style>
+
+        body {
+            padding: 20px;
+        }
+
+        #lista {
+            margin-top: 20px;
+            border: 1px solid black;
+            border-radius: 5px;;
+            width: 30%;
+            height: 400px;
+            padding: 10px;
+        }
+
+    </style>
+<body>
+    
+    <label for="concepto">Concepto: </label><input type="text" id="concepto" name="concepto">
+    <label for="importe">Importe: </label><input type="text" id="importe" name="importe">
+    <input type="submit" value="Añadir" onclick="añadir()">
+    <input type="submit" value="Limpiar lista" onclick="reset()">
+    <div id="lista"></div>
+    <h1 id="total">0</h1>
+
+    <script type="text/javascript">
+
+        function añadir() {
+
+            let concepto = document.getElementById( "concepto" );
+            let importe = document.getElementById( "importe" )
+            let lista = document.getElementById( "lista" );
+            let total = document.getElementById( "total" );
+
+            if ( concepto.value != null && importe.value != null ) {
+
+                lista.innerHTML = lista.innerHTML + concepto.value + " (" + importe.value + ")" + "<br>";
+                total.innerHTML = parseInt( total.innerHTML ) + parseInt( importe.value );
+                
+            }
+
+            if ( concepto.value == "" || importe.value == "" ) {
+
+                if ( concepto.value == "" ) {
+                    alert( "El concepto no puede estar vacío" );
+                    return false;
+                }
+
+                if ( importe.value == "" ) {
+                    alert( "El importe no puede estar vacío" );
+                    return false;
+                }
+
+            }
+            
+        }
+
+        function reset() {
+
+            let concepto = document.getElementById( "concepto" );
+            let importe = document.getElementById( "importe" )
+            let lista = document.getElementById( "lista" );
+            let total = document.getElementById( "total" );
+
+            concepto.value = "";
+            importe.value = "";
+            lista.innerHTML = "";
+            total.innerHTML = "0";
+
+        }
+
+    </script>
+
+</body>
+</html>
